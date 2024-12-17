@@ -12,17 +12,26 @@ spec:
   children: []
 ---
 apiVersion: backstage.io/v1alpha1
-kind: Group
+kind: User
 metadata:
-  name: rhdh
-  description: Red Hat Developer Hub
+  name: pe
 spec:
-  type: team
+  profile:
+    displayName: Platform Engineer
+    email: pe@demo.redhat.com
+    picture: https://api.dicebear.com/9.x/fun-emoji/svg?seed=Caleb
+  memberOf: [rhdh]
+apiVersion: backstage.io/v1alpha1
+---
+kind: User
+metadata:
+  name: pe
+spec:
   profile:
     # Intentional no displayName for testing
-    email: rhdh@opentlc.com
-    picture: https://avatars.dicebear.com/api/identicon/team-a@example.com.svg?background=%23fff&margin=25
-  children: []
+    email: pe@demo.redhat.com
+    picture: https://api.dicebear.com/9.x/fun-emoji/svg?seed=Caleb
+  memberOf: [rhdh]
 {% for index in range(0, gitlab_user_count | int, 1) %}
 ---
 apiVersion: backstage.io/v1alpha1
